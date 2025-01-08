@@ -1,26 +1,26 @@
 package com.example.SchedulingAppointmentsSpring.entities.user;
 
-import com.example.SchedulingAppointmentsSpring.entities.Appointment;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 
-@Table(name = "tb_user")
 @Entity(name = "tb_user")
+@Inheritance(strategy = InheritanceType.JOINED)
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class User implements UserDetails {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private String login;
     private String phone;

@@ -19,11 +19,10 @@ import java.util.Date;
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     private AppointmentCause cause;
     private String description;
-    private Doctor doctor;
     private Date dateStart;
     private Date dateEnd;
     private AppointmentRole status;
@@ -31,4 +30,8 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "pacient_id")
     private Pacient pacient;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
 }

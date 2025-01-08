@@ -6,8 +6,8 @@ import lombok.*;
 
 import java.util.HashSet;
 
-@Table(name = "tb_appointment")
-@Entity(name = "tb_appointment")
+@Table(name = "tb_hospital")
+@Entity(name = "tb_hospital")
 @Setter
 @Getter
 @NoArgsConstructor
@@ -16,7 +16,7 @@ import java.util.HashSet;
 public class Hospital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     private String name;
     private String cep;

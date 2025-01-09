@@ -1,5 +1,6 @@
 package com.example.SchedulingAppointmentsSpring.entities.user;
 
+import com.example.SchedulingAppointmentsSpring.entities.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,6 +27,15 @@ public class User implements UserDetails {
     private String phone;
     private String email;
     private String password;
+    private UserRole role;
+
+    public User(String login, String phone, String email, String password, UserRole role) {
+        this.login = login;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

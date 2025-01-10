@@ -31,8 +31,7 @@ public class ResourceExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public static ResponseEntity<String> handleValidationFields(HttpMessageNotReadableException ex) {
-        String error = ex.getMessage();
-        return ResponseEntity.badRequest().body(error);
+        return ResponseEntity.badRequest().body(ex.getMessage());
     }
 }
 

@@ -6,17 +6,18 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.lang.annotation.Inherited;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "tb_user")
-@Inheritance(strategy = InheritanceType.JOINED)
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User implements UserDetails {
 
     @Id

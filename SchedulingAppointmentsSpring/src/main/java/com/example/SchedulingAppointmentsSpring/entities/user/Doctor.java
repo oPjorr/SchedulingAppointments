@@ -33,4 +33,36 @@ public class Doctor extends User {
         this.academicDegree = academicDegree;
         this.hospital = hospital;
     }
+
+    public String getSpeciallity() {
+        return speciallity;
+    }
+
+    public void setSpeciallity(String speciallity) {
+        this.speciallity = speciallity;
+    }
+
+    public HealthAcademicDegree getAcademicDegree() {
+        return academicDegree;
+    }
+
+    public void setAcademicDegree(HealthAcademicDegree academicDegree) {
+        this.academicDegree = academicDegree;
+    }
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+    public Set<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(Set<Appointment> appointments) {
+        this.appointments = appointments;
+    }
 }

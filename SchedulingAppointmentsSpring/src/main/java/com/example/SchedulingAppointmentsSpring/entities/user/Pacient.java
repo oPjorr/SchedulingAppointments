@@ -35,4 +35,52 @@ public class Pacient extends User {
         this.allergy = allergy;
         this.allergyType = allergyType;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public boolean isAllergy() {
+        return allergy;
+    }
+
+    public void setAllergy(boolean allergy) {
+        this.allergy = allergy;
+    }
+
+    public AllergyType getAllergyType() {
+        return allergyType;
+    }
+
+    public void setAllergyType(AllergyType allergyType) {
+        this.allergyType = allergyType;
+    }
+
+    public Set<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(Set<Appointment> appointments) {
+        this.appointments = appointments;
+    }
 }

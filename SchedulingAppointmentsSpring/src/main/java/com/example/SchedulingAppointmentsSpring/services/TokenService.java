@@ -24,7 +24,7 @@ public class TokenService {
             String token = JWT.create()
                     .withIssuer("auth-api")
                     .withSubject(user.getUsername())
-                    .withClaim("role", user.getClass().getSimpleName())  // Incluindo o tipo de usuário (Doctor, Pacient, etc)
+                    .withClaim("role", user.getRole().name())  // Usar o valor do enum UserRole em vez do nome da classe
                     .withExpiresAt(genExpirationDate())
                     .sign(algorithm);
             return token;
@@ -40,15 +40,14 @@ public class TokenService {
                     .withIssuer("auth-api")
                     .build()
                     .verify(token)
-                    .getClaim("role").asString();  // Recuperando o tipo de usuário
+                    .getClaim("role").asString();
 
-            // Verifique se o token corresponde a um tipo de usuário válido
             if (role == null) {
                 throw new InvalidTokenException("Role not found in token");
             }
 
-            return role; // Retorna o tipo de usuário (Doctor, Pacient, etc)
-        } catch(JWTVerificationException e) {
+            return role;
+        } catch (JWTVerificationException e) {
             throw new InvalidTokenException(e.getMessage());
         }
     }

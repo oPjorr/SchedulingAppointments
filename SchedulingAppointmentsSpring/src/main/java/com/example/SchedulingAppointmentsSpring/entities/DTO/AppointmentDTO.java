@@ -7,5 +7,5 @@ import com.example.SchedulingAppointmentsSpring.entities.user.Pacient;
 
 import java.util.Date;
 
-public record AppointmentDTO(String id, AppointmentCause cause, String description, Doctor doctor, Date dateStart, Date dateEnd, AppointmentRole status, Pacient pacient) {
+public record AppointmentDTO(Long id, AppointmentCause cause, String description, Doctor doctor, Date dateStart, Date dateEnd, AppointmentRole status, Pacient pacient) {
 }

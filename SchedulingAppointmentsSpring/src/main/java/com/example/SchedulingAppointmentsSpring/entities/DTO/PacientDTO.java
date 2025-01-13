@@ -10,8 +10,9 @@ public record PacientDTO(
         @NotNull String email,
         @NotNull String phone,
         @NotNull UserRole role,
-        int age, String address,
-        double height,
-        boolean allergy,
+        @NotNull int age,
+        @NotNull String address,
+        @NotNull double height,
+        @NotNull boolean allergy,
         AllergyType allergyType) {
 }

@@ -25,4 +25,10 @@ public class Hospital {
     @OneToMany(mappedBy = "hospital")
     private HashSet<Doctor> doctors = new HashSet<>();
 
+    public Hospital(Long id, String name, String cep, String address) {
+        this.id = id;
+        this.name = name;
+        this.cep = cep;
+        this.address = address;
+    }
 }

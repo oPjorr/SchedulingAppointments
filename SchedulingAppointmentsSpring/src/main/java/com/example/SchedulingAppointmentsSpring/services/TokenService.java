@@ -36,17 +36,11 @@ public class TokenService {
     public String validateToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
-            String role = JWT.require(algorithm)
+            return JWT.require(algorithm)
                     .withIssuer("auth-api")
                     .build()
                     .verify(token)
-                    .getClaim("role").asString();
-
-            if (role == null) {
-                throw new InvalidTokenException("Role not found in token");
-            }
-
-            return role;
+                    .getSubject();
         } catch (JWTVerificationException e) {
             throw new InvalidTokenException(e.getMessage());
         }

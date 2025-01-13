@@ -4,6 +4,7 @@ import com.example.SchedulingAppointmentsSpring.entities.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.lang.annotation.Inherited;
@@ -39,20 +40,12 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
     public void setLogin(String login) {
         this.login = login;
     }
 
     public UserRole getRole() {
         return role;
-    }
-
-    public void setRole(UserRole role) {
-        this.role = role;
     }
 
     public void setPassword(String password) {
@@ -77,12 +70,9 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
-    }
-
-    @Override
-    public String getPassword() {
-        return "";
+        if (this.role == UserRole.DOCTOR) return List.of(new SimpleGrantedAuthority("ROLE_DOCTOR"), new SimpleGrantedAuthority("ROLE_USER"));
+        if (this.role == UserRole.PACIENT) return List.of(new SimpleGrantedAuthority("ROLE_PACIENT"), new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override

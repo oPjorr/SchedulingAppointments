@@ -63,10 +63,10 @@ public class HospitalService {
     }
 
     private HospitalDTO toHospitalDTO(Hospital hospital) {
-        return new HospitalDTO(hospital.getId() ,hospital.getName(), hospital.getCep(), hospital.getAddress());
+        return new HospitalDTO(hospital.getId(), hospital.getName(), hospital.getCep(), hospital.getAddress(), hospital.getDoctors());
     }
 
     private Hospital toHospital(HospitalDTO hospitalDTO) {
-        return new Hospital(hospitalDTO.id(), hospitalDTO.name(), hospitalDTO.cep(), hospitalDTO.address());
+        return new Hospital(hospitalDTO.id(), hospitalDTO.name(), hospitalDTO.cep(), hospitalDTO.address(), hospitalDTO.doctors());
     }
 }

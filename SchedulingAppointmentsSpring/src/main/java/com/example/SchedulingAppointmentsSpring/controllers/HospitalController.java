@@ -1,7 +1,7 @@
 package com.example.SchedulingAppointmentsSpring.controllers;
 
-import com.example.SchedulingAppointmentsSpring.entities.DTO.DoctorDTO;
-import com.example.SchedulingAppointmentsSpring.services.DoctorService;
+import com.example.SchedulingAppointmentsSpring.entities.DTO.HospitalDTO;
+import com.example.SchedulingAppointmentsSpring.services.HospitalService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,42 +9,40 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
-@RequestMapping("/doctors")
-public class DoctorController {
-
+@RequestMapping("/hospitals")
+public class HospitalController {
     @Autowired
-    DoctorService service;
+    HospitalService service;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<DoctorDTO> findAll() {
+    public List<HospitalDTO> findAll() {
         return service.findAll();
     }
 
     @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public DoctorDTO findById(@PathVariable UUID id) {
+    public HospitalDTO findById(@PathVariable Long id) {
         return service.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public DoctorDTO insert(@Valid @RequestBody DoctorDTO obj) {
+    public HospitalDTO insert(@Valid @RequestBody HospitalDTO obj) {
         return service.insert(obj);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<String> delete(@PathVariable UUID id) {
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         service.delete(id);
-        return ResponseEntity.ok().body("Deletado com sucelson!");
+        return ResponseEntity.ok().body("Deletado com sucesso!");
     }
 
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public DoctorDTO update(@PathVariable UUID id, @Valid @RequestBody DoctorDTO obj) {
+    public HospitalDTO update(@PathVariable Long id, @Valid @RequestBody HospitalDTO obj) {
         return service.update(id, obj);
     }
 }

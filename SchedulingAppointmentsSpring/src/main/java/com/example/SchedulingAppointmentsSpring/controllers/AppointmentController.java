@@ -23,12 +23,12 @@ public class AppointmentController {
 //    Teste
     @GetMapping("/doctor")
     public String doctorInfo(@AuthenticationPrincipal Doctor doctor) {
-        return "Doctor info: " + doctor.getSpeciallity();
+        return "Doctor info: "; // + doctor.getSpeciallity();
     }
 
     @GetMapping("/pacient")
     public String pacientInfo(@AuthenticationPrincipal Pacient pacient) {
-        return "Pacient info: " + pacient.getAge();
+        return "Pacient info: "; // + pacient.getAge();
     }
 
     @GetMapping

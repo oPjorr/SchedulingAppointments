@@ -1,31 +1,14 @@
 import "../assets/notfound.css"
+import { useNavigate } from "react-router-dom"
 
 export default function NotFound() {
+  const navigate = useNavigate()
+  function handleClick() {
+    navigate("/");
+  }
+
   return (
     <>
-      <div class="hamburger-menu">
-        <button class="burger" data-state="closed">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <nav data-state="closed">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
       <main>
         <div class="container">
           <div class="row">
@@ -739,7 +722,7 @@ export default function NotFound() {
                 a mystery. But you can click the button below to go back to the
                 homepage.
               </p>
-              <button class="btn green">HOME</button>
+              <button class="btn green" onClick={handleClick}>HOME</button>
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
+import checkToken from "../service/auth/checkToken";
 
 const ProtectedRoute = () => {
-  return true ? <Outlet/> : <Navigate to="/login" replace />;
+  return checkToken() ? <Outlet/> : <Navigate to="/login" replace />;
 }
 
 export default ProtectedRoute;

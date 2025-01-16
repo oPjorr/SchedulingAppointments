@@ -40,6 +40,26 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
     public void setLogin(String login) {
         this.login = login;
     }

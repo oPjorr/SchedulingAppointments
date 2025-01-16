@@ -34,7 +34,7 @@ export default function Login() {
                         <input type="password" id="logpass" className="input" placeholder="Password" />
                         <input type="password" className="input" placeholder="Confirm Password" />
                     </div>
-                    <button>Sign in</button>
+                    <button type="submit">Sign in</button>
                 </form>
                 <div className="form-section">
                     <p>Don't Have an account? <a href="/register"> Sign up </a></p>

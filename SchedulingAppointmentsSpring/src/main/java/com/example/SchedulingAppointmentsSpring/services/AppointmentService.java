@@ -71,6 +71,6 @@ public class AppointmentService {
     }
 
     private Appointment toAppointment(AppointmentDTO appointmentDTO) {
-        return new Appointment(appointmentDTO.id(), appointmentDTO.cause(), appointmentDTO.description(), appointmentDTO.dateStart(), appointmentDTO.dateEnd(), appointmentDTO.status(), appointmentDTO.pacient(), appointmentDTO.doctor());
+        return new Appointment(appointmentDTO.id(), appointmentDTO.cause(), appointmentDTO.description(), appointmentDTO.dateStart(), appointmentDTO.dateEnd(), appointmentDTO.doctor(), appointmentDTO.pacient(), appointmentDTO.status());
     }
 }

@@ -27,4 +27,52 @@ public class Hospital {
     @JsonIgnore
     @OneToMany(mappedBy = "hospital")
     private Set<Doctor> doctors = new HashSet<>();
+
+    public Hospital(Long id, String name, String cep, String address, Set<Doctor> doctors) {
+        this.id = id;
+        this.name = name;
+        this.cep = cep;
+        this.address = address;
+        this.doctors = doctors;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Set<Doctor> getDoctors() {
+        return doctors;
+    }
+
+    public void setDoctors(Set<Doctor> doctors) {
+        this.doctors = doctors;
+    }
 }
